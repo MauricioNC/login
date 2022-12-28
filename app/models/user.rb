@@ -9,11 +9,7 @@ class User < ApplicationRecord
 
   validates :password_digest, length: {minimum:8, maximum:16}
   validates_presence_of :password_digest, presence: true, on: :create, message: "Password can't be blank"
-  validates_uniqueness_of :password_digest, unique: true, on: :create, message: "Password must be unique"
-
-  validates :password_confirmation, presence: true
-  validates_presence_of :password_confirmation, presence: true, on: :create, message: "Password confirmation can't be blank"
-  validates_uniqueness_of :password_confirmation, unique: true, on: :create, message: "Password confirmation must be unique"
+  validates_confirmation_of :password_digest, on: :create, message: "should match confirmation"
 
   has_secure_password
 end

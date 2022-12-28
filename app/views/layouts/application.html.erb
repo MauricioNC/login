@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <%= flash[:info] %>
+    <%= flash[:error] %>
+    <%= flash[:success] %>
+    <%= flash[:warning] %>
     <%= yield %>
   </body>
 </html>
