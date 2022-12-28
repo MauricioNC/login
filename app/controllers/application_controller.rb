@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login, :current_user
 
   def require_login
-    redirect_to root_path unless session[:user_id]
-    redirect_to login_path if session[:user_id].nil?
+    redirect_to login_path if session[:user_id].nil? | true
   end
 
   def current_user
