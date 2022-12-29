@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      redirect_to '/login', error: @user.errors.full_messages
+      redirect_to '/login', error: "Email or password incorrects"
     end
   end
 
